@@ -1,0 +1,39 @@
+# Backend PHP + SQLite - CI/CD + Render
+
+## 1. Công nghệ sử dụng
+- PHP 8+
+- SQLite (file database.db)
+- Render (Backend Cloud)
+- GitHub Actions (CI/CD)
+
+## 2. Quy trình CI/CD
+1. Push code lên nhánh `main`
+2. GitHub Actions chạy workflow `.github/workflows/deploy-backend.yml`
+3. Workflow gọi API Deploy Hook
+4. Render tự deploy backend mới
+
+## 3. Tạo dịch vụ PHP trên Render
+1. Vào https://render.com
+2. New → Web Service
+3. Connect đến repo `backend-php`
+4. Chọn:
+   - Runtime: **PHP**
+   - Publish Directory: `public`
+   - Build Command: *(để trống)*
+5. Deploy
+
+## 4. Tạo Deploy Hook
+1. Render → Web Service → Settings
+2. Deploy Hooks → Generate Deploy Hook
+3. Copy URL
+
+## 5. Thêm vào GitHub Secrets
+Repo → Settings → Secrets → Actions → New Secret:
+
+- Name: `RENDER_DEPLOY_HOOK`
+- Value: (URL Render cung cấp)
+
+## 6. Test CI/CD
+- Sửa file index.php
+- Push lên `main`
+- Kiểm tra GitHub Actions
