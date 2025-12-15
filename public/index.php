@@ -4,8 +4,5 @@ require_once __DIR__ . '/../app/database.php';
 $db = getDB();
 $result = $db->query("SELECT datetime('now', '+7 hours') as current_time")->fetchArray();
 
-echo "<h1>PHP + SQLite Deploy bằng Render + GitHub Actions</h1>";
-echo "<p>Thời gian hiện tại trong DB: " . $result['current_time'] . "</p>";
-echo "<p>Thi cuối kì mã nguồn mở</p>";
-echo "<p>Nguyễn Thành Nam - DH52201080</p>";
+ <h1><u>Nguyễn Thành Nam- Cuối kỳ</u></h1>
 ?>
